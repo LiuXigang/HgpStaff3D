@@ -1,0 +1,73 @@
+﻿@model AddDepartmentsModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <form class="form-horizontal" role="form" asp-action="Add">
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Time" class="control-label"></label>
+                    <input asp-for="Time" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="CeoNo" class="control-label"></label>
+                    <input asp-for="CeoNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="InternalControlNo" class="control-label"></label>
+                    <input asp-for="InternalControlNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="StrategicInvestmentNo" class="control-label"></label>
+                    <input asp-for="StrategicInvestmentNo" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="HumanResourcesNo" class="control-label"></label>
+                    <input asp-for="HumanResourcesNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FinancialManagementNo" class="control-label"></label>
+                    <input asp-for="FinancialManagementNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductDevelopmentNo" class="control-label"></label>
+                    <input asp-for="ProductDevelopmentNo" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="SupplyChainNo" class="control-label"></label>
+                    <input asp-for="SupplyChainNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserCenterNo" class="control-label"></label>
+                    <input asp-for="UserCenterNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExternalContactrNo" class="control-label"></label>
+                    <input asp-for="ExternalContactrNo" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <input type="submit" value="添加" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <a asp-action="Index">返回</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

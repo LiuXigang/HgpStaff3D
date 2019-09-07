@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewData["Title"] = "Table";
+}
+@model TableModel
+
+<div class="text-center">
+    <table class="table table-striped" style="max-height:800px;">
+        <thead>
+            <tr>
+                @{
+                    foreach (var org in Model.Org)
+                    {
+                        <th>@org</th>
+                    }
+                }
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var rows in Model.RowsData)
+                {
+                    <tr>
+                        @{
+                            foreach (var row in rows)
+                            {
+                                <td>@row</td>
+                            }
+                        }
+                        <td><a asp-action="Delete" asp-route-groupKey="@rows[0]">删除</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
