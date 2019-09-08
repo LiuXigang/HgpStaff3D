@@ -2,6 +2,7 @@
 using HgpStaff3D.CommonExtension;
 using HgpStaff3D.Domain.AggregatesModel;
 using HgpStaff3D.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -53,24 +54,23 @@ namespace HgpStaff3D.Application.Queries
         public async Task<TableModel> GetTableAsync()
         {
             var list = await GetllAllAsync();
-            var data = list.GroupBy(n => n.Time);
+            var data = list.OrderBy(n => n.Time).GroupBy(n => n.GroupKey);
             var model = new TableModel();
+            model.Org.Add("");
+            foreach (int org in Enum.GetValues(typeof(Organization)))
+            {
+                model.Org.Add(CommExtensions.EnumDesc((Organization)org));
+            }
+            model.Org.Add("总数");
             foreach (var item in data)
             {
                 var rows = new List<string>();
-                var i = item.OrderBy(n => n.Organization);
-                rows.Add(item.Key.ToString("yyyy-MM-dd"));
+                var i = item.OrderBy(n => n.Time);
+                rows.Add(item.Key.ToString());
+                rows.Add(i?.FirstOrDefault()?.Time.ToString("yyyy-MM-dd") ?? "");
                 rows.AddRange(i.Select(oo => oo.EmployeeNumber.ToString()));
                 rows.Add(i.Select(n => n.EmployeeNumber).Sum().ToString());
                 model.RowsData.Add(rows);
-                if (!model.Org.Any())
-                {
-                    var orgs = item.Select(n => n.Organization).OrderBy(n => n);
-                    var os = new List<string> { "" };
-                    os.AddRange(orgs.Select(o => o.EnumDesc()));
-                    os.Add("总数");
-                    model.Org = os;
-                }
             }
             return model;
         }

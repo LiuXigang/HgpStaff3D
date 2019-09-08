@@ -61,8 +61,8 @@ namespace HgpStaff3D.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddDepartmentsModel model)
         {
-
             var groupKey = Guid.NewGuid();
+            model.Time = model.Time.Date;
             var departments = new List<Department>
             {
                 new Department {CapUpdated=CapUpdate.UnUpdate, GroupKey=groupKey, Organization = Organization.Ceo, Time = model.Time, EmployeeNumber = model.CeoNo },

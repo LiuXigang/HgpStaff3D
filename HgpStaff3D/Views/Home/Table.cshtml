@@ -22,15 +22,18 @@
             @{
                 foreach (var rows in Model.RowsData)
                 {
-                    <tr>
-                        @{
-                            foreach (var row in rows)
-                            {
-                                <td>@row</td>
+                        <tr>
+                            @{
+                                foreach (var row in rows)
+                                {
+                                    if (row != rows[0])
+                                    {
+                                        <td>@row</td>
+                                    }
+                                }
                             }
-                        }
-                        <td><a asp-action="Delete" asp-route-groupKey="@rows[0]">删除</a></td>
-                    </tr>
+                            <td><a asp-action="Delete" asp-route-groupKey="@rows[0]">删除</a></td>
+                        </tr>
                 }
             }
         </tbody>
