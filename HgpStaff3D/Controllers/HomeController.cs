@@ -12,11 +12,20 @@ using System.Threading.Tasks;
 
 namespace HgpStaff3D.Controllers
 {
+    /// <summary>
+    /// Home控制器
+    /// </summary>
     public class HomeController : Controller
     {
         private IMediator _mediatR;
         private IDepartmentRepository _repository;
         private IDepartmentQueries _query;
+        /// <summary>
+        /// DI
+        /// </summary>
+        /// <param name="mediator"></param>
+        /// <param name="repository"></param>
+        /// <param name="query"></param>
         public HomeController(IMediator mediator, 
             IDepartmentRepository repository, 
             IDepartmentQueries query)

@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
 namespace HgpStaff3D
 {
@@ -61,6 +64,12 @@ namespace HgpStaff3D
             services.AddScoped<DepartmentCreaterEventHandler>();
 
             #endregion
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "HgpStaff3DApi", Version = "v1" });
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, "HgpStaff3D.XML");
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -80,6 +89,12 @@ namespace HgpStaff3D
             app.UseCookiePolicy();
 
             app.UseMvc(routes => { routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); });
+
+            app.UseSwagger(c => { c.RouteTemplate = "swagger/{documentName}/swagger.json"; });
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "HgpStaff3D");
+            });
         }
     }
 }

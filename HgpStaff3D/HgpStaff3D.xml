@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HgpStaff3D</name>
+    </assembly>
+    <members>
+        <member name="T:HgpStaff3D.Api.TestController">
+            <summary>
+            TestController
+            </summary>
+        </member>
+        <member name="M:HgpStaff3D.Api.TestController.Get">
+            <summary>
+            Get
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Api.TestController.Get(System.Int32)">
+            <summary>
+            Get
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Api.TestController.Post(System.String)">
+            <summary>
+            Post
+            </summary>
+            <param name="value">value</param>
+        </member>
+        <member name="M:HgpStaff3D.Api.TestController.Put(System.Int32,System.String)">
+            <summary>
+            Put
+            </summary>
+            <param name="id">id</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:HgpStaff3D.Api.TestController.Delete(System.Int32)">
+            <summary>
+            Delete
+            </summary>
+            <param name="id">id</param>
+        </member>
+        <member name="T:HgpStaff3D.Controllers.HomeController">
+            <summary>
+            Home控制器
+            </summary>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.#ctor(MediatR.IMediator,HgpStaff3D.Infrastructure.Repositories.IDepartmentRepository,HgpStaff3D.Application.Queries.IDepartmentQueries)">
+            <summary>
+            DI
+            </summary>
+            <param name="mediator"></param>
+            <param name="repository"></param>
+            <param name="query"></param>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.Index">
+            <summary>
+            折线图页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.GetList">
+            <summary>
+            获取折线图数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.Add">
+            <summary>
+            添加数据页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.Add(HgpStaff3D.Models.AddDepartmentsModel)">
+            <summary>
+            添加数据
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.Table">
+            <summary>
+            获取表格数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgpStaff3D.Controllers.HomeController.Delete(System.Guid)">
+            <summary>
+            删除某天数据
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
